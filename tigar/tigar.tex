@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem statement
+\begin{statement}[
+  problempoints=100,
+  timelimit=3 sekunde,
+  memorylimit=512 MiB,
+]{Tigar}
+
+Mladi Luka sudjelovao je na brojnim ljetnim kampovima mladih informatičara.
+Kao i ostali polaznici, pohađao je predavanja, rješavao algoritamske zadatke,
+jeo puding od čokolade, igrao picigin, \ldots
+
+Međutim, nikada nije sudjelovao u društvenim igrama, već je samo pomno
+promatrao ostale polaznike kako se zabavljaju. Jedomm je prilikom tako
+promatrao svoje prijateljice, Emu i Paulu, kako igraju društvenu igru
+\textit{Set}. Cijelo su ga vrijeme djevojke nagovarale da se igra s njima,
+no Luka se nije dao samo tako nagovoriti.
+
+``Ako želite da se igram s vama, morat ćete mi dokazati da ste dostojne
+  protivnice. Zaigrajte moju igru, \textit{igru mladog tigra}, na način da je
+  svaki vaš potez optimalan. Ako to napravite, pridružit ću vam se i pobjedit ću
+  vas u setu.''
+
+\textit{Igra mladog tigra} odvija se na stablu koje će Luka izabrati, a ono se
+sastoji od $N$ neobojenih čvorova numeriranih prirodnim brojevima od $1$ do
+$N$. Igračice poteze vuku naizmjence, a igru će započeti Ema. Ema će u svom
+prvom potezu odabrati neki čvor stabla i obojit će ga. U svakom će sljedećem
+potezu igračica obojiti neki neobojeni čvor koji je susjedan čvoru koji je
+bio obojen u prošlom potezu. Igra završava kad neka igračica ne može
+napraviti potez. Emin cilj je da igra što prije završi, odnosno da se odigra
+najmanji mogući broj poteza, dok je Paulin cilj da igra što dulje traje,
+odnosno da se odigra najveći mogući broj poteza.
+
+Napišite program koji će odrediti broj poteza koji će se odigrati uz
+pretpostavku da obje igračice igraju optimalno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Input
+\subsection*{Ulazni podaci}
+
+U prvom se retku nalazi prirodan broj $N$ iz teksta zadatka.
+
+U $i$-tom od idućih $N - 1$ redaka su prirodni brojevi $a_i$ i $b_i$
+$(1 \le a_i, b_i \le N)$ koji označavaju da postoji brid između čvorova
+s oznakama $a_i$ i $b_i$.
+
+Bridovi će biti takvi da tvore stablo -- jednostavan, povezan graf koji ne
+sadrži ciklus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Output
+\subsection*{Izlazni podaci}
+
+U jedinom retku ispišite broj poteza koji će se odigrati ako igračice igraju
+optimalno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Scoring
+\subsection*{Bodovanje}
+
+{\renewcommand{\arraystretch}{1.4}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{ccl}
+   Podzadatak & Broj bodova & Ograničenja \\ \midrule
+    1 & ?? & $2 \le N \le 300$ \\
+    2 & ?? & $2 \le N \le 5\,000$ \\
+    3 & ?? & $2 \le N \le 100\,000$
+\end{tabular}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examples
+\subsection*{Probni primjeri}
+\begin{tabularx}{\textwidth}{X'X'X}
+\sampleinputs{test/tigar.dummy.in.1}{test/tigar.dummy.out.1} &
+\sampleinputs{test/tigar.dummy.in.2}{test/tigar.dummy.out.2} &
+\sampleinputs{test/tigar.dummy.in.3}{test/tigar.dummy.out.3}
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% We're done
+\end{statement}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% ispell-local-dictionary: "croatian"
+%%% TeX-master: "../hio.tex"
+%%% End:
