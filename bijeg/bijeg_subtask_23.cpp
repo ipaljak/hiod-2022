@@ -16,7 +16,7 @@ int q[MAXK];
 vector<llint> dijkstra(int s) {
   priority_queue<pair<llint, int>, vector<pair<llint, int>>,
                  greater<pair<llint, int>>> pq;
-  vector<llint> dist(n, -1LL);
+  vector<llint> dist(n, -1LL), bst(n, 1e18);
   pq.push({0LL, s});
 
   while (!pq.empty()) {
@@ -29,7 +29,8 @@ vector<llint> dijkstra(int s) {
     for (auto &p : v[node]) {
       llint nxt_d = (llint) p.second;
       int nxt = p.first;
-      if (dist[nxt] != -1) continue;
+      if (dist[nxt] != -1 || bst[nxt] < curr_d + nxt_d) continue;
+      bst[nxt] = curr_d + nxt_d;
       pq.push({curr_d + nxt_d, nxt});
     }
   }
