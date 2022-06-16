@@ -22,6 +22,7 @@ vector < pii > g[N];
 
 void oznaci(int x){
 	if(bio[x]) return;
+  bio[x] = 1;
 	for(int y : v[x])
 		oznaci(y);
 }
