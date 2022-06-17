@@ -6,23 +6,31 @@
   memorylimit=512 MiB,
 ]{Igračka}
 
-Malom Bernardu dosadila je Rubikova kocka te se odlučio zabaviti novom igračkom. Igračku možemo zamisli kao riječ $S$ koja se sastoji od slova $a$, $b$ i $c$.
+Malom Bernardu dosadila je Rubikova kocka te se odlučio zabaviti novom
+igračkom. Igračku možemo zamisliti kao riječ $S$ koja se sastoji od slova $a$,
+$b$ i $c$.
 
-U jednom potezu, Bernard može odabrati bilo koja tri uzastopna slova te im obrnuti redoslijed. Primjerice, ako je trenutno stanje igračke $aabc$, Bernard može obrtanjem prvih triju slova postići riječ $baac$, odnosno obrtanjem posljednjih triju slova postići riječ $acba$. 
+U jednom potezu, Bernard može odabrati bilo koja tri uzastopna slova te im
+obrnuti redoslijed. Primjerice, ako je trenutno stanje igračke $aabc$,
+Bernard može obrtanjem prvih triju slova postići riječ $baac$, odnosno
+obrtanjem posljednjih triju slova postići riječ $acba$.
 
-Igračka je valjana ako je nekim redoslijedom poteza moguće postići da se sva pojavljivanja slova $a$ nalaze prije pojavljivanja svih slova $b$ i sva pojavljivanja slova $c$ nalaze poslije svih pojavljivanja slova $b$ i slova $a$. Pomozite Bernardu odrediti je li njegova igračka valjana ili strgana.
+Igračka je valjana ako je nekim redoslijedom poteza moguće postići da se sva
+pojavljivanja slova $a$ nalaze prije pojavljivanja svih slova $b$ i sva
+pojavljivanja slova $c$ nalaze poslije svih pojavljivanja slova $b$ i slova
+$a$. Pomozite Bernardu odrediti je li njegova igračka valjana ili strgana.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input
 \subsection*{Ulazni podaci}
 
-U prvom retku nalazi se niz znakova koji predstavlja riječ $S$.
+U prvom je retku niz znakova koji predstavlja riječ $S$ iz teksta zadatka.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Output
 \subsection*{Izlazni podaci}
 
-U jedinom retku ispišite "da" ako je igračka valjana, odnosno "ne" ako nije.
+U jedinom retku ispišite \texttt{"da"} ako je igračka valjana, odnosno \texttt{"ne"} ako nije.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Scoring
@@ -44,6 +52,10 @@ U jedinom retku ispišite "da" ako je igračka valjana, odnosno "ne" ako nije.
 \sampleinputs{test/igracka.dummy.in.1}{test/igracka.dummy.out.1} &
 \sampleinputs{test/igracka.dummy.in.2}{test/igracka.dummy.out.2}
 \end{tabularx}
+
+\textbf{Pojašnjenje prvog probnog primjera:} Bernard može obrnuti poredak
+prvih triju slova te tako dobiti riječ $aabbcc$, pa je njegova igračka
+valjana.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % We're done
