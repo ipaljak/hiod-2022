@@ -130,7 +130,7 @@ def gen_rand(n, m, k, ones, d_hi):
     G = [[] for _ in range(n)]
 
     for b in range(2, n + 1):
-        a = random.randint(max(1, b - 10), b - 1)
+        a = random.randint(max(1, b - 50), b - 1)
         d = random.randint(1, d_hi)
         e_set.add((min(a, b), max(a, b)))
         es.append((a, b, d, 0))
@@ -153,31 +153,37 @@ def gen_rand(n, m, k, ones, d_hi):
     d_root = dijkstra(0, G)
 
     sd = sorted([(b, a) for (a, b) in enumerate(d_root)])
+    c, piv = -1, -1
+    for _ in range(5):
+        curr_piv = sd[random.randint(10, n//9)][1]
+        d_piv = dijkstra(curr_piv, G)
+        cnt = 0
+        for (a, b, d, _) in es:
+            a -= 1
+            b -= 1
+            if d_root[curr_piv] == d_root[a] + d + d_piv[b] or d_root[curr_piv] == d_root[b] + d + d_piv[a]:
+                cnt += 1
+        (c, piv) = max((c, piv), (cnt, curr_piv))
 
-    piv = sd[random.randint(10, n//8)][1]
     d_piv = dijkstra(piv, G)
+    print("c: " + str(c) + ", piv: " + str(piv))
 
     one_set = set()
     for (a, b, d, _) in es:
         a -= 1
         b -= 1
-        if d_root[a] > d_root[piv] or d_root[b] > d_root[piv]:
-            continue
         if (a == piv or b == piv) and (d_root[piv] == d_root[a] + d + d_piv[b] or d_root[piv] == d_root[b] + d + d_piv[a]):
             one_set.add((min(a, b) + 1, max(a, b) + 1))
             ones -= 1
             break
 
+    if ones != 0: ones = c // 2
     for (a, b, d, _) in es:
         a -= 1
         b -= 1
-        if d_root[a] > d_root[piv] or d_root[b] > d_root[piv]:
-            continue
         if ones > 0 and (d_root[piv] == d_root[a] + d + d_piv[b] or d_root[piv] == d_root[b] + d + d_piv[a]):
             one_set.add((min(a, b) + 1, max(a, b) + 1))
             ones -= 1
-
-    print(ones)
 
     es_final = []
     for (a, b, d, x) in es:
@@ -257,40 +263,49 @@ def gen_cases():
     subtask1, subtask2, subtask3, subtask4 = [], [], [], []
 
     # Subtask 1 -- M = N - 1,
+    print("Generating Subtask1")
+    for i in range(8):
+        subtask1.append(gen_rand(100, 99, 99, 1, 1))
+
+    for i in range(8):
+        subtask1.append(gen_rand(5000, 4999, 4999, 1, 1))
+
+    for i in range(8):
+        subtask1.append(gen_rand(100000, 99999, 99999, 1, 1))
 
     # Subtask 2 -- K <= 100, samo jedan xi = 1
     print("Generating Subtask2")
-    for i in range(6):
+    for i in range(8):
         subtask2.append(gen_rand(100, 100 * (i + 1), 30, 1, 1000))
 
-    for i in range(6):
+    for i in range(8):
         subtask2.append(gen_rand(5000, 5000 * (i + 1), 30, 1, 100))
 
-    for i in range(6):
+    for i in range(8):
         subtask2.append(gen_rand(100000, min(500000, 100000 * (i + 1)), 30, 1, 10**9))
 
     # Subtask 3 -- K <= 100
     print("Generating Subtask3")
-    for i in range(6):
+    for i in range(8):
         subtask3.append(gen_rand(100, 100 * (i + 1), 30, 10 * (i + 1), 1000))
 
-    for i in range(6):
+    for i in range(8):
         subtask3.append(gen_rand(5000, 5000 * (i + 1), 30, 10 * (i + 1), 100))
 
-    for i in range(6):
+    for i in range(8):
         subtask3.append(gen_rand(100000, min(500000, 100000 * (i + 1)), 30, 10 * (i + 1), 10**9))
 
     # Subtask 4 -- nema ogranicenja
     # print("Generating Subtask4")
-    # for i in range(1, 9):
-        # subtask4.append(gen_rand(100, 500, 99, 10 * i, 1000))
+    print("Generating Subtask4")
+    for i in range(8):
+        subtask4.append(gen_rand(100, 100 * (i + 1), 99, 10 * (i + 1), 1000))
 
-    # for i in range(1, 9):
-        # subtask4.append(gen_rand(5000, 30000, 4999, 10 * i, 100))
+    for i in range(8):
+        subtask4.append(gen_rand(5000, 5000 * (i + 1), 4999, 10 * (i + 1), 100))
 
-    # for i in range(1, 9):
-        # subtask4.append(gen_rand(100000, 500000, 999999, 10 * i, 10**9))
-
+    for i in range(8):
+        subtask4.append(gen_rand(100000, min(500000, 100000 * (i + 1)), 99999, 10 * (i + 1), 10**9))
 
     for subtask in [subtask1, subtask2, subtask3, subtask4]:
         real.append(subtask)
