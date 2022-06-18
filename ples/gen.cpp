@@ -6,9 +6,14 @@
 #include <algorithm>
 #include <unistd.h>
 
+#define PB push_back
+#define X first
+#define Y second
+
 using namespace std;
 
 typedef vector < int > vi;
+typedef pair < int , int > pii;
 
 int n, k;
 
@@ -27,10 +32,15 @@ int main(int argc, char** argv){
 	n -= rand() % 20;
 	if(k > 2 && rand() % 2 == 0) k--;
 	printf("%d %d\n", n, k);
+	vector < pii > mogu;
+	for(int b = 0;b < 10;b++)
+		mogu.PB({rand() % k, rand() % k});
 	vector < int > v;
 	for(int j = 0;j < k;j++) v.push_back(j + 1);
+	
 	for(int i = 0;i < n;i++){
-		random_shuffle(v.begin(), v.end());
+		for(pii tmp : mogu)
+			if(rand() % 2) swap(v[tmp.X], v[tmp.Y]);
 		for(int j = 0;j < k;j++){
 			printf("%d", v[j]);
 			printf(j == k - 1 ? "\n" : " ");
